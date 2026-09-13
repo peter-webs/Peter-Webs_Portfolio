@@ -2,6 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import anime from 'animejs';
 import { Plus, Briefcase, Calendar } from 'lucide-react';
+import darkFrameImg from '../assets/imageedit_2_4824872695.png';
+import lightFrameImg from '../assets/il_570xN.6339063485_99kv-removebg-preview.png';
+import myPhotoImg from '../assets/my-photo.png';
 
 // ==========================================
 // 1. HANDWRITING COMPONENT
@@ -428,14 +431,14 @@ export default function Hero({ isDark }) {
                 {/* --- RIGHT SIDE: SHIFTED LEFT --- */}
                 <div className="relative w-[450px] flex-shrink-0 z-10 flex items-center justify-center pointer-events-auto animate-float mt-8 md:mt-0 md:-translate-x-12 lg:-translate-x-24">
                     <img
-                        src={isDark ? "/imageedit_2_4824872695.png" : "/il_570xN.6339063485_99kv-removebg-preview.png"}
+                        src={isDark ? darkFrameImg : lightFrameImg}
                         alt="Cartouche Frame"
                         className={`relative w-full h-auto object-contain pointer-events-none z-10 transition-all duration-500 ${
                             isDark ? 'drop-shadow-[0_0_25px_rgba(251,191,36,0.25)]' : 'drop-shadow-2xl'
                         }`}
                     />
                     <img 
-                        src="/my-photo.png" 
+                        src={myPhotoImg} 
                         alt="Profile" 
                         className="absolute top-[3%] left-[26%] w-[48%] h-[90%] object-cover rounded-full z-0"
                     />

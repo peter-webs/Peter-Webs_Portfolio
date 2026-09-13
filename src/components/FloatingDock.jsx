@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Home, Layers, FolderKanban, FileText, Mail, Moon, Sun, X, MapPin, Phone, Mail as MailIcon, FileText as FileIcon, ExternalLink } from 'lucide-react';
+import solarBarkImg from '../assets/solar-bark.png';
+import ankhImg from '../assets/The-Ankh-removebg-preview.png';
 
 export default function FloatingDock({ isDark, toggleTheme }) {
   const [isCvOpen, setIsCvOpen] = useState(false);
@@ -76,7 +78,7 @@ export default function FloatingDock({ isDark, toggleTheme }) {
         <div className="relative w-full h-full">
           
           <img 
-            src="/solar-bark.png" 
+            src={solarBarkImg} 
             alt="Egyptian Solar Bark Dock" 
             className="w-full h-auto drop-shadow-2xl pointer-events-none"
           />
@@ -104,7 +106,7 @@ export default function FloatingDock({ isDark, toggleTheme }) {
             >
               <span className={tooltipClass}>Ankh</span>
               <img 
-                src="/The-Ankh-removebg-preview.png" 
+                src={ankhImg} 
                 alt="Ankh" 
                 className="h-[32px] w-auto object-contain transition-transform duration-300 group-hover:scale-110" 
               />
@@ -135,15 +137,13 @@ export default function FloatingDock({ isDark, toggleTheme }) {
       {/* --- GIANT GLOWING ANKH (FIXED BLUR) --- */}
       {isAnkhRendered && (
         <div 
-          // The container now ONLY handles opacity and background blur, preventing the shrinking box effect
           className={`fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/40 backdrop-blur-2xl transition-opacity duration-700 pointer-events-none ${
             isAnkhVisible ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          {/* The image now handles the scaling separately */}
           <div className={`transition-transform duration-700 ${isAnkhVisible ? 'scale-100' : 'scale-50'}`}>
             <img 
-              src="/The-Ankh-removebg-preview.png" 
+              src={ankhImg} 
               alt="Giant Glowing Ankh" 
               className="h-[60vh] md:h-[80vh] w-auto object-contain animate-pulse"
               style={{
