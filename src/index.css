@@ -1,0 +1,63 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+@theme {
+  --color-background: var(--bg-color);
+  --color-surface: var(--surface-color);
+  --color-text: var(--text-color);
+  --color-primary: var(--primary-color);
+}
+
+@layer base {
+  /* Light Mode: The Sun / Papyrus */
+  :root {
+    --bg-color: #f4e8d1;
+    --surface-color: #eaddc5;
+    --text-color: #2c1e16; /* Charcoal Ink */
+    --primary-color: #b7410e; /* Terracotta */
+  }
+
+  /* Dark Mode: The Tomb / Obsidian */
+  .dark {
+    --bg-color: #0a0a0a;
+    --surface-color: #1a1a1a;
+    --text-color: #f4e8d1; /* Papyrus Text */
+    --primary-color: #ffd700; /* Gold */
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+}
+
+/* Add this to the bottom of your global CSS file */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes wipe-in {
+  0% { 
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    opacity: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% { 
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 1;
+  }
+}
+
+.animate-wipe {
+  opacity: 0;
+  animation: wipe-in 1.5s ease-out forwards;
+}
